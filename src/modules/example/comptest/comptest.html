@@ -1,0 +1,173 @@
+<template>
+  <h1 class="slds-text-heading_medium slds-m-bottom_medium">Component Test</h1>
+  <p>This is the Component Test Page</p>
+  <example-page-link label="Home" page-reference={homeReference}></example-page-link>
+  <br />
+  <!-- Text Input -->
+  <lightning-input name="input1" label="Enter some text" value={txtVal} onchange={txtChange}></lightning-input>
+  <br />
+  <!-- Neutral variant (default) -->
+  <lightning-button label="Click Here" title="Neutral action" onclick={handleNeutralClick}></lightning-button>
+
+  <br /><br />
+
+  <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+    Dynamic Icons
+  </h2>
+
+  <p>
+    EQ Icon - The eq icon displays an animated graph with three bars that rise and fall randomly.
+  </p>
+  <lightning-dynamic-icon
+    type="eq"
+    option="play"
+    alternative-text="Recording in progress">
+  </lightning-dynamic-icon>
+
+  <p>
+    The trend icon displays animated arrows that point up, down, or straight.
+  </p>
+  <lightning-dynamic-icon 
+    type="trend" 
+    option="down" 
+    alternative-text="Trending down">
+  </lightning-dynamic-icon>
+  <lightning-dynamic-icon 
+    type="trend" 
+    option="up" 
+    alternative-text="Trending down">
+  </lightning-dynamic-icon>
+  <lightning-dynamic-icon 
+    type="trend" 
+    option="neutral" 
+    alternative-text="Trending down">
+  </lightning-dynamic-icon>
+
+  <p>
+    The waffle icon is a square made up of a 3x3 grid of circles. This icon animates on hover.
+  </p>
+  <lightning-dynamic-icon 
+    type="waffle" 
+    alternative-text="Application launcher">
+  </lightning-dynamic-icon>
+
+  <br /><br />
+
+  <h2 class="slds-text-heading_medium slds-m-bottom_medium">Data Table Test</h2>
+  <div style="height: 300px;">
+    <lightning-datatable
+            key-field="id"
+            data={data}
+            columns={columns}
+            onrowaction={handleRowAction}>
+    </lightning-datatable>
+  </div>
+
+  <br /><br />
+
+  <h2 class="slds-text-heading_medium slds-m-bottom_medium">Badge Test</h2>
+  <lightning-badge label="Alpha" class="slds-badge_inverse"></lightning-badge>
+  <lightning-badge label="Beta"></lightning-badge>
+  <lightning-badge label="Gamma"></lightning-badge>
+
+  <br />
+  <br />
+
+  <h2 class="slds-text-heading_medium slds-m-bottom_medium">Lightning Breadcrumbs</h2>
+  <lightning-breadcrumbs>
+    <lightning-breadcrumb
+        label="Parent Account"
+        href="http://example.com/parent">
+    </lightning-breadcrumb>
+    <lightning-breadcrumb
+        label="Case"
+        href="http://example.com/case">
+    </lightning-breadcrumb>
+  </lightning-breadcrumbs>
+
+  <br /><br />
+
+  <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+    Button group using several button types (standard, icon, stateful, icon-stateful, menu).
+  </h2>
+
+  <lightning-button-group>
+    <lightning-button label="Refresh"></lightning-button>
+    <lightning-button label="Edit"></lightning-button>
+    <lightning-button label="Save" icon-name="utility:save"></lightning-button>
+    <lightning-button-icon icon-name="utility:delete" variant="border-filled" alternative-text="Delete"></lightning-button-icon>
+    <lightning-button-icon icon-name="utility:settings" variant="border-filled" alternative-text="Settings"></lightning-button-icon>
+    <lightning-button-stateful
+                selected={buttonStatefulState}
+                label-when-off="Follow"
+                label-when-on="Following"
+                label-when-hover="Unfollow"
+                icon-name-when-off="utility:add"
+                icon-name-when-on="utility:check"
+                icon-name-when-hover="utility:close"
+                onclick={handleButtonStatefulClick}
+      ></lightning-button-stateful>
+      <lightning-button-icon-stateful
+                icon-name="utility:like"
+                selected={buttonIconStatefulState}
+                alternative-text="Like"
+                onclick={handleButtonIconStatefulClick}>
+            </lightning-button-icon-stateful>
+            <lightning-button-menu alternative-text="Show menu">
+                <lightning-menu-item label="Menu Item One" value="item1"></lightning-menu-item>
+                <lightning-menu-item label="Menu Item Two" value="item2"></lightning-menu-item>
+                <lightning-menu-item label="Menu Item Three" value="item3"></lightning-menu-item>
+            </lightning-button-menu>
+      </lightning-button-group>
+
+      <br /><br />
+
+      <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Checkbox Group
+      </h2>
+
+      <lightning-checkbox-group name="Checkbox Group"
+                              label="Checkbox Group"
+                              options={cbgroup_options}
+                              value={cbgroup_value}
+                              onchange={cbgroup_handleChange}></lightning-checkbox-group>
+    <p>Selected Values are: {cbgroup_selectedValues}</p>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+      Combo Box
+    </h2>
+
+    <lightning-combobox
+            name="progress"
+            label="Status"
+            value={cmbox_value}
+            placeholder="Select Progress"
+            options={cmbox_options}
+            onchange={cmbox_handleChange} ></lightning-combobox>
+
+    <p>Selected value is: {cmbox_value}</p>
+
+    <br />
+    <br />
+    
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+      Dual List Box
+    </h2>
+
+    <lightning-dual-listbox name="languages"
+                            label="Select Languages"
+                            source-label="Available"
+                            selected-label="Selected"
+                            field-level-help="Select your preferred languages"
+                            options={dlist_options}
+                            onchange={dlist_handleChange}></lightning-dual-listbox>
+    <div class="slds-box" >
+        <p>Selected values are: {dlist_selected}</p>
+    </div>
+
+    <br /><br />
+    
+
+</template>

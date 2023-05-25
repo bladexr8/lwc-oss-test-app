@@ -1,0 +1,241 @@
+<template>
+    <h1 class="slds-text-heading_medium slds-m-bottom_medium">Components Test 04</h1>
+    <p>This is the Components Test 04 Page</p>
+    <example-page-link label="Home" page-reference={homeReference}></example-page-link>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Pills
+    </h2>
+
+    <div class="slds-m-vertical_medium">
+        <p>Info: <span class="slds-text-heading_small">{pill_infoText}</span></p>
+    </div>
+    <lightning-pill label="With link" href="https://www.example.com"></lightning-pill>
+    <lightning-pill label="With remove handler" onremove={pill_handleRemove}></lightning-pill>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Progress Bar
+    </h2>
+
+    <p>Basic Progress Bar</p>
+    <lightning-progress-bar value="50" size="large"></lightning-progress-bar>
+    <br />
+    <p>Active Progress Bar</p>
+    <lightning-progress-bar value={progress}></lightning-progress-bar>
+    <lightning-button label={computedLabel} onclick={toggleProgress} class="slds-m-top_medium"></lightning-button>
+    <br />
+    <p>Rounded Progress Bar</p>
+    <lightning-progress-bar value="50" size="large" variant="circular"></lightning-progress-bar>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Progress Indicator
+    </h2>
+
+    <p>
+        A progress indicator displays the steps in a process. All steps preceding the step specified by currentStep are marked completed.
+    </p>
+    <lightning-progress-indicator current-step="3" type="base" has-error="true" variant="base">
+        <lightning-progress-step label="Step 1" value="1"></lightning-progress-step>
+        <lightning-progress-step label="Step 2" value="2"></lightning-progress-step>
+        <lightning-progress-step label="Step 3" value="3"></lightning-progress-step>
+        <lightning-progress-step label="Step 4" value="4"></lightning-progress-step>
+    </lightning-progress-indicator>
+
+    <br />
+
+    <p>Path Type Progress Indicator</p>
+    <lightning-progress-indicator current-step="3" type="path" variant="base">
+        <lightning-progress-step label="Contacted" value="1"></lightning-progress-step>
+        <lightning-progress-step label="Open" value="2"></lightning-progress-step>
+        <lightning-progress-step label="Unqualified" value="3"></lightning-progress-step>
+        <lightning-progress-step label="Nurturing" value="4"></lightning-progress-step>
+        <lightning-progress-step label="Closed" value="5"></lightning-progress-step>
+    </lightning-progress-indicator>
+
+    <br />
+
+    <p>Path Type Progress Indicator built from a data source</p>
+    <lightning-progress-indicator current-step="step-3" type="path" variant="base">
+        <template for:each={pi_data_steps} for:item="step">
+            <lightning-progress-step label={step.label} value={step.value} key={step.label}></lightning-progress-step>
+        </template>
+    </lightning-progress-indicator>
+
+    <br />
+
+    <p>Path Type Progress Indicator with conditional display</p>
+    <lightning-progress-indicator current-step="step-3" type="path" variant="base">
+        <lightning-progress-step label="Contacted" value="step-1"></lightning-progress-step>
+        <lightning-progress-step label="Open" value="step-2"></lightning-progress-step>
+        <lightning-progress-step label="Unqualified" value="step-3"></lightning-progress-step>
+        <template if:true={showStep4}>
+            <lightning-progress-step label="Nurturing" value="step-4"></lightning-progress-step>
+        </template>
+        <lightning-progress-step label="Closed" value="step-5"></lightning-progress-step>
+    </lightning-progress-indicator>
+    <lightning-button label="Hide/Show Step 4" onclick={toggleStep4}></lightning-button>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Progress Ring
+    </h2>
+
+    <div class="slds-m-bottom_medium">
+        <lightning-slider
+            onchange={sliderChange}
+            value={sliderValue}
+            label="Value"
+        ></lightning-slider>
+        <lightning-input
+            type="toggle"
+            label="Direction"
+            name="direction"
+            checked
+            onchange={directionChange}
+            message-toggle-active="Fill"
+            message-toggle-inactive="Drain"
+        ></lightning-input>
+    </div>
+
+    <div class="slds-m-bottom_small">
+        <span class="slds-m-right_small">
+            variant: base
+        </span>
+        <lightning-progress-ring
+            value={sliderValue}
+            direction={direction}
+            variant="base"
+        ></lightning-progress-ring>
+    </div>
+
+    <div class="slds-m-bottom_small">
+        <span class="slds-m-right_small">
+            variant: base-autocomplete
+        </span>
+        <lightning-progress-ring
+            value={sliderValue}
+            direction={direction}
+            variant="base-autocomplete"
+        ></lightning-progress-ring>
+    </div>
+
+    <div class="slds-m-bottom_small">
+        <span class="slds-m-right_small">
+            variant: active-step
+        </span>
+        <lightning-progress-ring
+            value={sliderValue}
+            direction={direction}
+            variant="active-step"
+        ></lightning-progress-ring>
+    </div>
+
+    <div class="slds-m-bottom_small">
+        <span class="slds-m-right_small">
+            variant: warning
+        </span>
+        <lightning-progress-ring
+            value={sliderValue}
+            direction={direction}
+            variant="warning"
+        ></lightning-progress-ring>
+    </div>
+
+    <div class="slds-m-bottom_small">
+        <span class="slds-m-right_small">
+            variant: expired
+        </span>
+        <lightning-progress-ring
+            value={sliderValue}
+            direction={direction}
+            variant="expired"
+        ></lightning-progress-ring>
+    </div>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Radio Group
+    </h2>
+
+    <p>Basic Radio Group</p>
+    <lightning-radio-group name="radioGroup"
+                          label="Radio Group"
+                          options={radio_group_options}
+                          value={radio_group_value}
+                          type="radio"></lightning-radio-group>
+
+    <br />
+    <p>Button Radio Group</p>
+    <lightning-radio-group name="radioGroup"
+                          label="Radio Group"
+                          options={radio_group_options}
+                          value={radio_group_value}
+                          type="button"></lightning-radio-group>
+
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Slider
+    </h2>
+
+    <div class="slds-m-vertical_medium">
+        <h1 class="slds-text-heading_small">Slider Positioning</h1>
+        <p class="slds-text-body_regular">The slider can be positioned horizontally or vertically.</p>
+    </div>
+    
+    <lightning-slider label="Volume"></lightning-slider>
+    <lightning-slider label="Volume" type="vertical"></lightning-slider>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Spinner
+    </h2>
+
+    <lightning-button label="Toggle" variant="brand" onclick={spinner_handleClick}></lightning-button>
+
+    <div class="exampleHolder">
+        <template if:true={spinner_loaded}>
+            Put loaded content here
+        </template>
+        <template if:false={spinner_loaded}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+    </div>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Tabset
+    </h2>
+
+    <lightning-tabset>
+        <lightning-tab label="Item One">
+            One Content !
+        </lightning-tab>
+        <lightning-tab label="Item Two" title="2nd tab extended title">
+            Two Content !
+        </lightning-tab>
+        <lightning-tab label="Item Three">
+            Three Content !
+        </lightning-tab>
+    </lightning-tabset>
+
+
+
+
+
+
+
+
+
+  </template>

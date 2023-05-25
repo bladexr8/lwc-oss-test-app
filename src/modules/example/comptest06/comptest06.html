@@ -1,0 +1,133 @@
+<!--<template>
+    <template lwc:if={showAlertDialog}>
+        <h1 class="slds-text-heading_medium slds-m-bottom_medium">Components Test 06</h1>
+        <p>This is the Components Test 06 Page</p>
+        <example-page-link label="Home" page-reference={homeReference}></example-page-link>
+
+        <br /><br />
+
+        <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+            Modal Dialog (SLDS)
+        </h2>
+        <lightning-button onclick={handleAlertClick} label="Open SLDS Modal"></lightning-button>
+    </template>
+    
+
+    <template lwc:else>
+
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+              <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Cancel and close</span>
+              </button>
+              <div class="slds-modal__header">
+                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Modal header</h1>
+              </div>
+              <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <p>Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor esse quis. Cillum sunt ad dolore quis
+                  aute consequat ipsum magna exercitation reprehenderit magna. Tempor cupidatat consequat elit dolor adipisicing.</p>
+                <p>Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit incididunt nisi consectetur esse laborum eiusmod pariatur proident. Eiusmod et adipisicing culpa deserunt nostrud
+                  ad veniam nulla aute est. Labore esse esse cupidatat amet velit id elit consequat minim ullamco mollit enim excepteur ea.</p>
+              </div>
+              <div class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onClick={closeModal}>Cancel</button>
+                <button class="slds-button slds-button_brand" onClick={closeModal}>Save</button>
+              </div>
+            </div>
+          </section>
+          <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+
+    </template>
+
+
+</template> -->
+
+<template>
+    <div>
+      <template if:true={isTemplateOne}>
+        <h1 class="slds-text-heading_medium slds-m-bottom_medium">Components Test 06</h1>
+        <p>This is the Components Test 06 Page</p>
+        <example-page-link label="Home" page-reference={homeReference}></example-page-link>
+
+        <br /><br />
+
+        <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+            Modal Dialog (SLDS)
+        </h2>
+        <lightning-button onclick={handleAlertClick} label="Open SLDS Modal"></lightning-button>
+
+        <br /><br />
+
+        <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+            Accordion
+        </h2>
+        <p class="slds-text-heading_small">{activeSectionMessage}</p>
+
+        <lightning-button onclick={handleSetActiveSectionC} label="Open Section C"></lightning-button>
+
+        <lightning-accordion class="example-accordion"
+                         onsectiontoggle={handleToggleSection}
+                         active-section-name="B">
+            <lightning-accordion-section name="A" label="Accordion Title A">
+                <lightning-button-menu slot="actions"
+                                  alternative-text="Show menu"
+                                  icon-size="x-small"
+                                  menu-alignment="right">
+                    <lightning-menu-item value="New" label="Menu Item One"></lightning-menu-item>
+                    <lightning-menu-item value="Edit" label="Menu Item Two"></lightning-menu-item>
+                </lightning-button-menu>
+                <p>This is the content area for section A.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="B" label="Accordion Title B">
+                <p>This is the content area for section B.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning-accordion-section>
+
+            <lightning-accordion-section name="C" label="Accordion Title C">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning-accordion-section>
+        </lightning-accordion>
+
+      </template>
+      <template if:false={isTemplateOne}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+              <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" id="close" onclick={closeModal}>
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Cancel and close</span>
+              </button>
+              <div class="slds-modal__header">
+                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">SLDS Modal Dialog</h1>
+              </div>
+              <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <p>Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor esse quis. Cillum sunt ad dolore quis
+                  aute consequat ipsum magna exercitation reprehenderit magna. Tempor cupidatat consequat elit dolor adipisicing.</p>
+                <p>Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit incididunt nisi consectetur esse laborum eiusmod pariatur proident. Eiusmod et adipisicing culpa deserunt nostrud
+                  ad veniam nulla aute est. Labore esse esse cupidatat amet velit id elit consequat minim ullamco mollit enim excepteur ea.</p>
+              </div>
+              <div class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={closeModal} id="cancel">Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={saveCloseModal} id="save">Save</button>
+              </div>
+            </div>
+          </section>
+          <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+      </template>
+    </div>
+  </template>

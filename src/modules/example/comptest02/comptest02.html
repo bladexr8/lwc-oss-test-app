@@ -1,0 +1,264 @@
+<template>
+    <h1 class="slds-text-heading_medium slds-m-bottom_medium">Component Test 2</h1>
+    <p>This is the Component Test 2 Page</p>
+    <example-page-link label="Home" page-reference={homeReference}></example-page-link>
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Formatted Address
+    </h2>
+
+    <div class="slds-m-vertical_medium">
+        <h1 class="slds-text-heading_small">Formatted Address</h1>
+        <p class="slds-text-body_regular">This component formats an address and automatically links it to Google Maps.</p>
+    </div>
+
+    <lightning-formatted-address
+        street="121 Spear St."
+        city="San Francisco"
+        country="US"
+        province="CA"
+        postal-code="94105"
+    ></lightning-formatted-address>
+
+    <div class="slds-m-vertical_medium">
+        <h1 class="slds-text-heading_small">Formatted Address in Plain Text</h1>
+        <p class="slds-text-body_regular">This component formats an address but doesn't link to Google Maps.</p>
+    </div>
+
+    <lightning-formatted-address
+        street="121 Spear St."
+        city="San Francisco"
+        country="US"
+        province="CA"
+        postal-code="94105"
+        disabled
+    ></lightning-formatted-address>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Formatted Date and Time
+    </h2>
+
+    <div class="slds-box">
+        <h2 class="header">Date and Time Formatting</h2>
+        <p><lightning-formatted-date-time value="1547250828000" year="2-digit" month="short" day="2-digit" hour="numeric"
+                                       weekday="long" era="short"></lightning-formatted-date-time></p>
+        <p><lightning-formatted-date-time value="1547250828000" year="numeric" month="numeric" day="numeric" hour="2-digit"
+                                        minute="2-digit" time-zone-name="short"></lightning-formatted-date-time></p>
+        <p><lightning-formatted-date-time value="1547250828000" year="numeric" month="numeric" day="numeric" hour="2-digit"
+                                        minute="2-digit" time-zone="UTC" time-zone-name="short" hour12={ampm}></lightning-formatted-date-time></p>
+    </div>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Formatted Email
+    </h2>
+
+    <div class="slds-m-vertical_medium">
+        <h1 class="slds-text-heading_small">Formatted Email</h1>
+        <p class="slds-text-body_regular">Default behavior displays an email address with an email icon. The email address is automatically linked to open the default mail app.</p>
+    </div>
+    <p><lightning-formatted-email value="email@example.com" ></lightning-formatted-email></p>
+
+    <div class="slds-m-vertical_medium">
+        <h1 class="slds-text-heading_small">Formatted Email Without an Icon</h1>
+        <p class="slds-text-body_regular">Remove the icon using the <code>hide-icon</code> attribute.</p>
+    </div>
+    <p><lightning-formatted-email value="email@example.com" hide-icon></lightning-formatted-email></p>
+
+    <div class="slds-m-vertical_medium">
+        <h1 class="slds-text-heading_small">Formatted Email With a Label</h1>
+        <p class="slds-text-body_regular">Display custom text instead of the email address with the <code>label</code> attribute.</p>
+    </div>
+    <p><lightning-formatted-email value="email@example.com" label="Email Us!" ></lightning-formatted-email></p>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Formatted Location
+    </h2>
+
+    <p><lightning-formatted-location latitude="22" longitude="122.2222"></lightning-formatted-location></p>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Formatted Name
+    </h2>
+
+    <div class="slds-box">
+        <h3 class="header">Default (Long Format)</h3>
+        <lightning-formatted-name
+                first-name="John"
+                last-name="Doe"
+                middle-name="Middleton"
+                informal-name="Jo"
+                suffix="The 3rd"
+                salutation="Mr."
+        >
+        </lightning-formatted-name>
+    </div>
+
+    <br />
+
+    <div class="slds-box">
+        <h3 class="header">Medium Format</h3>
+        <lightning-formatted-name
+                first-name="John"
+                last-name="Doe"
+                middle-name="Middleton"
+                informal-name="Jo"
+                suffix="The 3rd"
+                salutation="Mr."
+                format="medium"
+        ></lightning-formatted-name>
+    </div>
+
+    <br />
+
+    <div class="slds-box">
+        <h3 class="header">Short Format</h3>
+        <lightning-formatted-name
+                first-name="John"
+                last-name="Doe"
+                middle-name="Middleton"
+                informal-name="Jo"
+                suffix="The 3rd"
+                salutation="Mr."
+                format="short"
+        ></lightning-formatted-name>
+    </div>
+
+    <br /><br />
+
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Formatted Number
+    </h2>
+
+    <p>Decimal Numbers</p>
+    <p><lightning-formatted-number value="1234.5678"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="1234.5678" maximum-fraction-digits="2"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="12.34" format-style="decimal" minimum-integer-digits="5"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="12.34" format-style="decimal" minimum-fraction-digits="5"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="12.34" format-style="decimal" minimum-significant-digits="5"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="123456789.123456789" minimum-fraction-digits="9"></lightning-formatted-number></p>
+
+    <br />
+    <p>Currency Formatting</p>
+    <p><lightning-formatted-number value="12.34" format-style="currency" currency-code="USD"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="12.34" format-style="currency" currency-code="USD" currency-display-as="code"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="12.34" format-style="currency" currency-code="USD" currency-display-as="name"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="12.34" format-style="currency" currency-code="USD" currency-display-as="symbol"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="12.34" format-style="currency" currency-code="EUR"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="12.34" format-style="currency" currency-code="EUR" currency-display-as="name"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="12.34" format-style="currency" currency-code="CNY"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="123456789012345" format-style="currency" currency-code="EUR" minimum-fraction-digits="2" maximum-fraction-digits="2"></lightning-formatted-number></p>
+
+    <br />
+    <p>Percentage Formatting</p>
+    <p><lightning-formatted-number value="1" format-style="percent"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="0.5" format-style="percent"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="0.1234" format-style="percent"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="0.1234" format-style="percent" maximum-fraction-digits="3"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="0.1234" format-style="percent" maximum-fraction-digits="1"></lightning-formatted-number></p>
+    <p><lightning-formatted-number value="2.3" format-style="percent"></lightning-formatted-number></p>
+
+    <br /><br />
+    
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Formatted Phone Number
+    </h2>
+
+    <p><lightning-formatted-phone value="+18005551212" ></lightning-formatted-phone></p>
+    <p><lightning-formatted-phone value="8005551212"></lightning-formatted-phone></p>
+    <p><lightning-formatted-phone value="18005551212"></lightning-formatted-phone></p>
+    <p><lightning-formatted-phone value="1333333" ></lightning-formatted-phone></p>
+    <p><lightning-formatted-phone value="18005551212" disabled></lightning-formatted-phone></p>
+
+    <br /><br />
+    
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Formatted Time
+    </h2>
+
+    <p>Simple Time value: <lightning-formatted-time value="22:12:30.999"></lightning-formatted-time></p>
+    <p>Time value with Z suffix: <lightning-formatted-time value="22:12:30.999Z"></lightning-formatted-time></p>
+
+    <br /><br />
+    
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Formatted URL
+    </h2>
+
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+        <h2 class="slds-text-heading_small">
+            Absolute URLs are created if the value doesn't begin with /
+        </h2>
+        <div class="slds-p-around_medium">
+            <p><lightning-formatted-url value="my/path" tooltip="Omit leading slash" target="_blank"></lightning-formatted-url></p>
+            <p><lightning-formatted-url value="www.salesforce.com" tooltip="Use full domain name" target="_blank"></lightning-formatted-url></p>
+            <p><lightning-formatted-url value="https://salesforce.com" tooltip="Use https://domain-name" label="Visit salesforce.com" target="_blank" ></lightning-formatted-url></p>
+        </div>
+    </div>
+
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+        <h2 class="slds-text-heading_small">
+            Relative URLs are created if the value begins with /
+        </h2>
+        <div class="slds-p-around_medium">
+            <p><lightning-formatted-url value="/my/path" tooltip="Include leading slash" target="_blank"></lightning-formatted-url></p>
+            <p><lightning-formatted-url value="/my/path" label="Visit /my/path on this website" target="_blank"></lightning-formatted-url></p>
+        </div>
+    </div>
+
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+        <h2 class="slds-text-heading_small">
+            Only http, https, and ftp protocols are supported.
+        </h2>
+        <div class="slds-p-around_medium">
+            <p><lightning-formatted-url value="https://www.salesforce.com" target="_blank"></lightning-formatted-url></p>
+            <p><lightning-formatted-url value="ftp://public.ftp-servers.example.com/path/to/myfile.txt" target="_blank"></lightning-formatted-url></p>
+        </div>
+    </div>
+
+    <br /><br />
+    
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Help Text
+    </h2>
+
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+        <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+            Helptext example using a default icon. Mouse over or focus on the icon to view the helptext content.
+        </h2>
+
+        <p class="slds-m-bottom_medium">The tooltip displays on the lower left of the icon or above the icon if space is available. It automatically adjusts its position according to the viewport.</p>
+        
+        <!-- Simple -->
+        <div class="slds-p-around_medium lgc-bg">
+            Subscribe
+            <lightning-helptext content="You'll receive weekly updates"></lightning-helptext>
+        </div>
+    </div>
+
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+        <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+            Helptext example with an alternative icon.
+        </h2>
+
+        <!-- Simple -->
+        <div class="slds-p-around_medium lgc-bg">
+            Short Text
+            <lightning-helptext icon-name="utility:salesforce1" content="Full text explanation of feature"></lightning-helptext>
+        </div>
+    </div>
+
+
+
+
+
+
+  </template>

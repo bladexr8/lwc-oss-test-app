@@ -1,0 +1,42 @@
+<template>
+    
+        <!--<example-page-link label="Home (app.html)" page-reference={homeReference}></example-page-link>-->
+        <lwr-router-container router={router}>
+            
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item padding="around-small" size="12">
+                    <div class="page-section page-header">
+                        <example-header></example-header>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12">
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" size="2">
+                            <div class="page-section page-right">
+                                <example-left-nav></example-left-nav>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" size="8">
+                            <div class="page-section page-main">
+                                <lwr-outlet view-name="testoutlet"></lwr-outlet>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" size="2">
+                            <div class="page-section page-right">
+                                <example-right-side-bar></example-right-side-bar>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="12">
+                    <div class="page-footer page-section">
+                        <example-footer></example-footer>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        
+        
+            <!--<lwr-outlet onviewerror={onViewError}></lwr-outlet>-->
+        </lwr-router-container>
+
+</template>
